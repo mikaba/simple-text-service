@@ -18,28 +18,33 @@ Setup And Usage
 - Reference to simple-text-service.js
 - Import the module
 
-
-    angular.module('myModule', ['simple-text-service']);
+```javascript
+angular.module('myModule', ['simple-text-service']);
+```
 
 - Fill the JSON via config block in your app:
 
+```javascript
+app.config(['TextServiceProvider', function (TextServiceProvider) {
+    TextServiceProvider.textBase = {
+        'test.message.key': 'Hello world!'
+    };
+}]);
+```
 
-    app.config(['TextServiceProvider', function (TextServiceProvider) {
-        TextServiceProvider.textBase = {
-            'test.message.key': 'Hello world!'
-        };
-    }]);
 
 - Use the service in in your app
 
-
-    app.module('myModule').controller('Ctrl', ['$scope', 'TextService', function ($scope, TextService) {
-        $scope.text = TextService.getText('test.message.key');
-    }]);
+```javascript
+app.module('myModule').controller('Ctrl', ['$scope', 'TextService', function ($scope, TextService) {
+    $scope.text = TextService.getText('test.message.key');
+}]);
+```
 
 - or the filter
 
-
-    <div>
-        <span>{{ 'test.message.key' | textService }}</span>
-    </div>
+```html
+<div>
+    <span>{{ 'test.message.key' | textService }}</span>
+</div>
+```
