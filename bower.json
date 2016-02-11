@@ -1,0 +1,9 @@
+{
+  "name": "simple-text-service",
+  "version": "1.0.0",
+  "main": "./simple-text-service.js",
+  "ignore": [],
+  "dependencies": {
+    "angular": "1.4.3"
+  }
+}
